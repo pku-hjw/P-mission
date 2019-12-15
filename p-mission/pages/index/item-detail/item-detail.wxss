@@ -1,0 +1,221 @@
+/* pages/test/item-detail/item-detail.wxss */
+.container {
+  padding: 0 32rpx;
+}
+.container-ext-info {
+  display: flex;
+  justify-content: space-around;
+  color: #888;
+  font-size: 28rpx;
+}
+.container-user {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 24rpx 0rpx;
+  border-bottom: 4rpx solid #eee;
+}
+
+.info-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin-right: 16px;
+}
+.avatar {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+}
+.container-desc {
+  position: relative;
+}
+
+.txt-goods-desc {
+  font-size: 40rpx;
+}
+
+.container-user-ext-info {
+  display: flex;
+  flex-flow: column;
+}
+.username {
+  font-size: 32rpx;
+}
+
+.address {
+  font-size: 10px;
+  color: #666;
+}
+
+.container-price {
+  margin-top: 32rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: baseline;
+}
+
+.txt-real-price {
+  color: #FF0000;
+}
+
+.txt-real-price::before,
+.txt-origin-price::before {
+  content: "￥";
+}
+
+.txt-real-price::before {
+  font-size: 12px;
+}
+
+.txt-origin-price::before {
+  font-size: 10px;
+}
+
+.txt-origin-price {
+  margin-left: 12rpx;
+  font-size: 10px;
+  color: #ccc;
+  text-decoration: line-through;
+}
+
+.container-desc {
+  margin-top: 32rpx;
+  font-size: 14px;
+  color: #444;
+}
+
+.middle {
+  margin-top: 16rpx;
+}
+
+.slide-image {
+  width: 100%;
+}
+
+.scroll {
+  padding-bottom: 90rpx;
+}
+
+.bottom {
+  padding: 16rpx 0;
+}
+
+.container-ext-info > .content {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.content .small-icon {
+  margin-right: 8rpx;
+}
+
+.comment {
+  width: 100%;
+  padding: 0 0;
+}
+.comment > .title {
+  font-size: 32rpx;
+}
+
+.area-item {
+  border-top: 1px solid #eee;
+  padding: 16rpx 0px;
+}
+
+.item-avatar {
+  margin-right: 12rpx;
+}
+
+.item-avatar-image {
+  width: 52rpx;
+  height: 52rpx;
+  border-radius: 50%;
+}
+
+.item-comment-info {
+  display: flex;
+  flex-flow: column;
+  color: #444;
+}
+
+.item-comment-info > .username {
+  font-size: 32rpx;
+}
+
+.item-comment-info > .desc {
+  font-size: 36rpx;
+  color: #444;
+}
+
+.item-comment-info > .item-date {
+  color: #888;
+  font-size: 28rpx;
+}
+
+.arem-item-base {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.btn-container {
+  display: flex;
+  height: 48px;
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  box-shadow: 0 1rpx 1rpx #eee;
+  align-items: center;
+}
+
+.btn-lists {
+  height: 100%;
+  flex: 3;
+  font-size: 24rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+.contact {
+  flex: 2;
+  color: #fff;
+  font-size: 32rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.btn-contact {
+  width: 100px;
+  height: 24px;
+  background-color: #FF0000;
+  margin: auto auto; 
+  line-height: 24px;
+  border-radius: 2px;
+}
+
+.btn {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  font-size: 28rpx;
+}
+
+.input-container {
+  width: 100%;
+}
+
+.input-comment {
+  text-align: left;
+  height: 48px;
+  padding: 0 10px;
+  color: #888;
+  font-size: 14px;
+}
+
+.hide {
+  display: none;
+}

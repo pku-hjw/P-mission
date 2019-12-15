@@ -1,0 +1,23 @@
+<!--pages/user/setting/setting.wxml-->
+<view class="container">
+  <view class="top">
+    <view class="my-view-setting">
+      <view class="my-txt-desc">账号和安全</view>
+      <view class="my-icon icon-rignt middle-icon"></view>
+    </view>
+    <view class="my-view-setting" bindtap="editPhone">
+      <view class="my-txt-desc">联系方式</view>
+      <view class="my-icon icon-rignt middle-icon"></view>
+    </view>
+    <view class="my-view-setting border-none" bindtap="editAddress">
+      <view class="my-txt-desc">收货地址</view>
+      <view class="my-icon icon-rignt middle-icon"></view>
+    </view>
+  </view>
+  <view class="middle">
+    <view class="my-view-setting border-none" bindtap="aboutAPP">
+      <view class="my-txt-desc">关于PKU考拉</view>
+      <view class="my-icon icon-rignt middle-icon"></view>
+    </view>
+  </view>
+</view>

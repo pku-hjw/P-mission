@@ -1,0 +1,41 @@
+<import src="loading" />
+<import src="icon" />
+
+<template name="listview">
+  <view class="ayy-list-view">
+    <view class="ayy-list">
+      <block wx:for-items="{{pages}}" wx:for-item="item" wx:key="*item">
+        <navigator url="/pages/index/item-detail/item-detail?goods_id={{item.goods_id}}" class="ayy-list-item">
+          <view class="ayy-list-view-image">
+            <view class="ayy-list-view-show">
+              <view wx:if="{{item.is_donation == 1}}" class="ayy-list-image-icon">
+                <template is="donation" />
+              </view>
+              <image class="ayy-list-image" src="{{item.cover}}" />
+            </view>
+          </view>
+          <view class="ayy-list-content">
+            <view class="ayy-list-view-title">
+              <view class="ayy-list-txt-title">{{item.title}}</view>
+            </view>
+            <view class="ayy-list-bottom">
+              <template is="tag" />
+              <view class="ayy-list-view-info">
+                <view class="ayy-list-price">{{item.price}}</view>
+                <view class="ayy-list-look-count">{{item.lookcount}}人浏览</view>
+              </view>
+              <view class="ayy-list-bottom-info">
+                <view class="ayy-list-view-address">
+                  <view class="ayy-list-address">{{item.address}}</view>
+                </view>
+                <view class="ayy-list-view-detail">
+                  <view class="ayy-list-txt-detail middle-icon icon-rignt-after">详情</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+</template>

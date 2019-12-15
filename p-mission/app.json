@@ -1,0 +1,65 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/personshow/personshow",
+    "pages/social/release/release",
+    "pages/social/topic/topic",
+    "pages/social/social",
+    "pages/user/setting/phoneedit",
+    "pages/user/setting/addressedit",
+    "pages/user/user",
+    "pages/user/setting/about",
+    "pages/depoly/depoly",
+    "pages/depoly/edit-price/edit-price",
+    "pages/depoly/edittag/edittag",
+    "pages/donation/donation",
+    "pages/user/setting/setting",
+    "pages/user/mytrace/mytrace",
+    "pages/index/item-detail/item-detail",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#8B0012",
+    "navigationBarTitleText": "PKU考拉",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "selectedColor": "#8B0012",
+    "borderStyle": "white",
+    "list": [
+      {
+        "iconPath": "image/index.png",
+        "selectedIconPath": "image/index.png",
+        "pagePath": "pages/index/index",
+        "text": "好货"
+      },
+      {
+        "iconPath": "image/social.png",
+        "selectedIconPath": "image/social.png",
+        "pagePath": "pages/social/social",
+        "text": "任务"
+      },
+      {
+        "iconPath": "image/add.png",
+        "selectedIconPath": "image/add.png",
+        "pagePath": "pages/depoly/depoly",
+        "text": "发布"
+      },
+      {
+        "iconPath": "image/people.png",
+        "selectedIconPath": "image/people.png",
+        "pagePath": "pages/user/user",
+        "text": "我的"
+      }
+    ]
+  },
+  "debug": true,
+  "permission": {
+    "scope.userLocation": {
+      "desc": "PKU考拉将自动获取您的位置信息，方便商品发布"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}
