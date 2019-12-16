@@ -13,7 +13,7 @@
         </view>
         <view class="medal">
           <image class="img-medal" src="http://nanxuan.qiniuts.com/icon/medal1.png"></image>
-          <text>9</text>
+          <text>19</text>
         </view>
       </view>
       <text class="uname">{{userinfo.username}}</text>
@@ -59,7 +59,7 @@
               <text>微信号</text>
             </view>
             <view class="item-info-content">  
-              <text>gzq282828</text>
+              <text>wx123456789</text>
             </view>
           </view>
           <view class="item-info">
@@ -67,7 +67,7 @@
               <text>收货地址</text>
             </view>
             <view class="item-info-content">  
-              <text>上海市长宁区凌空SOHO15栋</text>
+              <text>13号楼3345</text>
             </view>
           </view>
         </view>

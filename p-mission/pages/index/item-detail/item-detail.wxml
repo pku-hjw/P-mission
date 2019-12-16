@@ -72,13 +72,13 @@
         <input class="input-comment" confirm-type="send" value="{{inputValue}}"     bindconfirm="sendClick" bindblur="unfocusInput" placeholder="请在这里输入评论"/>
       </view>
       <view class="btn-lists {{isShow == 1 ? 'hide':'show'}}">
-        <view class='btn' bindtap="likeClick">
+        <!-- <view class='btn' bindtap="likeClick">
           <text class="middle-icon {{likeId == 0?'icon-like':'icon-like-fill'}}"></text>
           <text>喜欢</text>
-        </view>
+        </view> -->
         <view class='btn'>
           <text class="middle-icon {{favoriteId == 0?'icon-favor':'icon-favor-fill'}}" bindtap="collectClick"></text>
-          <text>收藏</text>
+          <text>待会再看</text>
         </view>
         <view class='btn' bindtap='commentClick'>
           <text class="middle-icon icon-comment"></text>

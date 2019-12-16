@@ -1,16 +1,16 @@
 Page({
   data: {
     userinfo: {
-      avatar: "http://nanxuan.qiniuts.com/tmp/wx5a407b64d62a69bc.o6zAJs-yD4_VkBfMkhr2pUTWHH8c.0663a7bea52a1c76270493ca69fe5ea2.jpg",
+      avatar: "https://www.woyaogexing.com/touxiang/nan/2019/901513.html",
       username: "南轩",
       desc: "这个人很懒，什么也没留下"
     },
     pages: [
       {
         goods_id: 1,
-        is_donation: 1,
-        cover: "http://nanxuan.qiniuts.com/tmp/wx5a407b64d62a69bc.o6zAJs-yD4_VkBfMkhr2pUTWHH8c.0663a7bea52a1c76270493ca69fe5ea2.jpg",
-        title: "dsds"
+        is_donation: 0,
+        cover: "https://www.woyaogexing.com/touxiang/nan/2019/901513.html",
+        title:"卫龙 八成新"
       }
     ],
     data: [

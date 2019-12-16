@@ -6,9 +6,9 @@
     <image class="search-icon" src="../../image/sx.png"></image>
   </view>
   <view class="sort-container">
-    <view class="lasted-button sort-button" bindtap="lastedGoodsClick" style="background-color:{{sort_button_back_color[0]}}">最新</view>
-    <view class="hot-button sort-button" bindtap="hotGoodsClick" style="background-color:{{sort_button_back_color[1]}}">热卖</view>
-    <view class="recommend-button sort-button" bindtap="recommendGoodsClick" style="background-color:{{sort_button_back_color[2]}}">推荐</view>
+    <view class="lasted-button sort-button" bindtap="lastedGoodsClick" style="background-color:{{sort_button_back_color[0]}}">图书</view>
+    <view class="hot-button sort-button" bindtap="hotGoodsClick" style="background-color:{{sort_button_back_color[1]}}">电子</view>
+    <view class="recommend-button sort-button" bindtap="recommendGoodsClick" style="background-color:{{sort_button_back_color[2]}}">其他</view>
   </view>
   <!-- <view>{{text_msg}}</view> -->
   <template is="listview" data="{{pages}}"/>
