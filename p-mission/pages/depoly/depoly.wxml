@@ -2,7 +2,14 @@
 
 <view class="container">
   <!-- <template is="loading" /> -->
-  <view class="scoller">
+  <view class="no-login" wx:if="{{!hasLogin}}">
+    <view class="c">
+      <!-- <image src='../../../../../static/images/icon_mission.png' /> -->
+      <text>还没有登录</text>
+      <button plain="true" bindtap="goLogin">去登录</button>
+    </view>
+  </view>
+  <view class="scoller" wx:else>
     <view class="top">
       <view class="input-area">
         <view class="title">
@@ -72,12 +79,12 @@
         </view>
       </view>
     </view>
-  </view>
-  <view class="fixed">
+    <view class="fixed">
     <view class="fixed-container">
       <view class="btn-publish" bindtap="publishGoods">
         <view class="txt-publish-show">
           <text class="txt-publish">确定发布</text>
+          </view>
         </view>
       </view>
     </view>

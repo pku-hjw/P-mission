@@ -16,7 +16,10 @@
     "pages/user/setting/setting",
     "pages/user/mytrace/mytrace",
     "pages/index/item-detail/item-detail",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/auth/login/login",
+    "pages/user/release/release",
+    "pages/user/star/star"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,78 +1,97 @@
-const util = require('../../utils/util.js')
+var util = require('../../utils/util.js');
+var api = require('../../config/api.js');
+var user = require('../../utils/user.js');
+var app = getApp();
 
 Page({
-  onShow: function() {
-    if (!util.checkLogin()) {
-      console.log("未登录。。。")
-      this.setData({
-        isLogin: false
-      });
-    } else {
-      this.userDetail()
-      this.querySchool()
-      this.setData({
-        isLogin: true
-      });
-    }
-  },
   data: {
+    aboutShow: true,
+    userInfo: {
+      nickName: '点击登录',
+      avatarUrl: 'http://yanxuan.nosdn.127.net/8945ae63d940cc42406c3f67019c5cb6.png'
+    },
     index: 0,
     schools: [],
-    userinfo: {
-      username: "",
-      avatar: "",
-      desc: ""
-    },
     favoriteCount: 0,
     integral: 0,
     likeCount: 0,
     lookCount: 0,
-    publishCount: 0,
-    isLogin: false
+    publishCount: 0
   },
-  getWxUserInfo: function(e) {
-    console.log(e.detail.rawData)
-    var app = getApp();
-    var _that = this;
-    wx.request({
-      url: app.globalData.domain.dev + 'people/registerinfo/',
-      method: 'GET',
-      // dataType: 'json',
-      data: {
-        uid: app.globalData.userInfo.userId,
-        userInfo: e.detail.rawData
-      },
-      success: function(res) {
-        console.log(res);
-        var _user = JSON.parse(e.detail.rawData)
-        if (_user) {
-          // 设置本地缓存，获取用户信息成功
-          util.getUserInfoOk();
-        }
-        app.globalData.userInfo.nickname = _user.nickName;
-        app.globalData.userInfo.avatar = _user.avatarUrl;
-        app.globalData.userInfo.location = _user.address;
-        _that.setData({
-          isLogin: true,
-          userinfo: {
-            username: _user.nickName,
-            avatar: _user.avatarUrl,
-            desc: "介绍一下自己吧",
-          }
-        })
-      }
-    });
+
+  onLoad: function (options) {
+
   },
-  jumpToSetting: function(e) {
+  onReady: function () {
+
+  },
+  onShow: function () {
+
+    //获取用户的登录信息
+    if (app.globalData.hasLogin) {
+      let userInfo = wx.getStorageSync('userInfo');
+      this.querySchool()
+      this.setData({
+        aboutShow: true,
+        userInfo: userInfo,
+      });
+    }
+
+  },
+  onHide: function () {
+    // 页面隐藏
+
+  },
+  onUnload: function () {
+    // 页面关闭
+  },
+  goLogin() {
+    if (!app.globalData.hasLogin) {
+      wx.navigateTo({
+        url: "/pages/auth/login/login"
+      });
+    }
+  },
+
+
+  jumpToSetting() {
     wx.navigateTo({
       url: 'setting/setting',
     })
   },
-  jumpTomytrace: function(e) {
+
+  jumpToStar() {
     wx.navigateTo({
-      url: 'mytrace/mytrace?type=' + e.currentTarget.id,
+      url: 'star/star',
     })
   },
+
+  jumpToRelease(){
+    if (app.globalData.hasLogin) {
+      wx.navigateTo({
+        url: "/pages/user/release/release"
+      });
+    }
+    else {
+      wx.navigateTo({
+        url: "/pages/auth/login/login"
+      });
+    }
+  },
+
+  jumpToMycollection() {
+    if(app.globalData.hasLogin){
+      wx.navigateTo({
+      url: 'mytrace/mytrace?type=' + e.currentTarget.id,
+    });
+    }
+    else{
+      wx.navigateTo({
+        url: "/pages/auth/login/login"
+      });
+    }
+  },
+
   schoolSelect: function(e) {
     this.setData({
       index: e.detail.value
@@ -102,7 +121,6 @@ Page({
   },
   querySchool: function(e) {
     var _that = this;
-    var app = getApp();
     wx.request({
       url: app.globalData.domain.dev + 'people/school/query/',
       method: 'GET',
@@ -121,47 +139,23 @@ Page({
       }
     })
   },
-  userDetail: function(e) {
-    var app = getApp();
-    var _that = this
-    wx.request({
-      url: app.globalData.domain.dev + 'people/detail/',
-      method: 'GET',
-      data: {
-        uid: app.globalData.userInfo.userId
-      },
-      success: function(res) {
-        if (res.data.status != 1) {
-          wx.showToast({
-            title: res.data.message,
-            icon: 'none',
-          })
-          return;
+  
+
+  exitLogin: function () {
+    wx.showModal({
+      title: '',
+      confirmColor: '#b4282d',
+      content: '退出登录？',
+      success: function (res) {
+        if (res.confirm) {
+          wx.removeStorageSync('token');
+          wx.removeStorageSync('userInfo');
+          wx.switchTab({
+            url: '/pages/index/index'
+          });
         }
-        var data = res.data.data;
-        app.globalData.userInfo.nickname = data.user_base.nickname;
-        app.globalData.userInfo.avatar = data.user_base.avatar;
-        app.globalData.userInfo.gender = data.user_base.gender;
-        app.globalData.userInfo.location = data.user_base.address;
-        app.globalData.userInfo.telephone = data.telephone;
-        app.globalData.userInfo.email = data.email;
-        app.globalData.userInfo.shipAddress = data.ship_address;
-        console.log(data)
-        _that.setData({
-          userinfo: {
-            username: app.globalData.userInfo.nickname,
-            avatar: app.globalData.userInfo.avatar,
-            desc: "介绍一下自己吧"
-          },
-          index: data.school,
-          favoriteCount: data.favorite_count,
-          integral: data.integral,
-          likeCount: data.like_count,
-          lookCount: data.look_count,
-          publishCount: data.publish_count
-        })
-        console.log(res);
       }
     })
   }
+
 })
