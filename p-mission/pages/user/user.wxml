@@ -17,18 +17,9 @@
         <view class="my-txt-desc">我的发布</view>
         <view class="my-icon icon-rignt-after middle-icon">{{publishCount}}</view>
       </view>
-<<<<<<< HEAD
-      <!-- <view class="my-view-info" id="3" bindtap="jumpTomytrace">
-        <view class="my-txt-desc">我的喜欢</view>
-        <view class="my-icon icon-rignt-after middle-icon">{{likeCount}}</view>
-      </view> -->
-      <view class="my-view-info border-none" id="4" bindtap="jumpTomytrace">
-        <view class="my-txt-desc">现在看看</view>
-=======
       
       <view class="my-view-info border-none" id="4" bindtap="jumpToMycollection">
         <view class="my-txt-desc">我的收藏</view>
->>>>>>> b2e41ccd42e15c7b956d26dde85593e66836d8ae
         <view class="my-icon icon-rignt-after middle-icon">{{favoriteCount}}</view>
       </view>
     </view>
