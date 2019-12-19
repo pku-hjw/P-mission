@@ -1,17 +1,9 @@
 <view class="container">
-  <view class='top'>
-    <view wx:if="{{isLogin}}">
-      <view class='user-top'>
-        <image class="avatar" src="{{userinfo.avatar}}"></image>
-        <text class="uname">{{userinfo.username}}</text>
-        <text class="info">{{userinfo.desc}}</text>
-      </view>
-    </view>
-    <view wx:else>
-      <view class='user-top'>
-        <button class='btn-getinfo' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getWxUserInfo">
-          获取头像及昵称
-        </button>
+  <view class="my-info">
+    <view class="profile-info" bindtap="goLogin">
+      <image class="avatar" src="{{userInfo.avatarUrl}}" />
+      <view class="my-info-name">{{userInfo.nickName}}
+        <text></text>
       </view>
     </view>
   </view>
@@ -19,40 +11,43 @@
     <view class="person-list">
       <view class="my-view-info">
         <view class="my-txt-desc">我的积分</view>
-        <view class="my-icon icon-rignt-after middle-icon">{{integral}}</view>
+        <view>{{integral}}</view>
       </view>
-      <view class="my-view-info" id="1" bindtap="jumpTomytrace">
+      <view class="my-view-info" id="1" bindtap="jumpToRelease">
         <view class="my-txt-desc">我的发布</view>
         <view class="my-icon icon-rignt-after middle-icon">{{publishCount}}</view>
       </view>
+<<<<<<< HEAD
       <!-- <view class="my-view-info" id="3" bindtap="jumpTomytrace">
         <view class="my-txt-desc">我的喜欢</view>
         <view class="my-icon icon-rignt-after middle-icon">{{likeCount}}</view>
       </view> -->
       <view class="my-view-info border-none" id="4" bindtap="jumpTomytrace">
         <view class="my-txt-desc">现在看看</view>
+=======
+      
+      <view class="my-view-info border-none" id="4" bindtap="jumpToMycollection">
+        <view class="my-txt-desc">我的收藏</view>
+>>>>>>> b2e41ccd42e15c7b956d26dde85593e66836d8ae
         <view class="my-icon icon-rignt-after middle-icon">{{favoriteCount}}</view>
       </view>
-      <!-- <view class="my-view-info border-none" id="look" bindtap="jumpTomytrace">
-        <view class="my-txt-desc">我的浏览</view>
-        <view class="my-icon icon-rignt-after middle-icon"></view>
-      </view> -->
     </view>
   </view>
   <view class="bottom">
     <view class="person-setting-list">
       <view class="my-view-info">
         <view class="my-txt-desc">我的学校</view>
-        <picker class="picker-school" bindchange="schoolSelect" value="{{index}}" range="{{schools}}">
+        <!-- <picker class="picker-school" bindchange="schoolSelect" value="{{index}}" range="{{schools}}">
           <view class="my-icon icon-rignt-after middle-icon">{{schools[index]}}</view>
-        </picker>
+        </picker> -->
+        <view class="my-icon middle-icon">北京大学软微学院</view>
       </view>
       <view class="my-view-info" bindtap="jumpToSetting">
         <view class="my-txt-desc">设置</view>
         <view class="my-icon icon-rignt middle-icon"></view>
       </view>
-      <view class="my-view-info border-none" bindtap="jumpToSetting">
-        <view class="my-txt-desc">赞赏支持</view>
+      <view class="my-view-info border-none" bindtap="jumpToStar">
+        <view class="my-txt-desc">给个star</view>
         <view class="my-icon icon-rignt middle-icon"></view>
       </view>
     </view>

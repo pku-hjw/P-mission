@@ -18,6 +18,49 @@
   color: #444;
   padding: 4px 0;
 }
+
+.no-login {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  color: #8B0012;
+}
+
+.no-login .c {
+  width: 100%;
+  height: auto;
+  margin-top: 200rpx;
+  color: #8B0012;
+}
+
+.no-login .c image {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  width: 258rpx;
+  height: 158rpx;
+  color: #8B0012;
+}
+
+.no-login .c text {
+  margin: 0 auto;
+  display: block;
+  width: 258rpx;
+  height: 59rpx;
+  line-height: 29rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #8B0012;
+}
+
+.no-login button {
+  width: 60%;
+  margin: 0 auto;
+  color: #8B0012;
+  /* background-color: #FFF; */
+  border-color: #8B0012;
+}
+
 .desc {
   font-size: 14px;
   color: #444;
