@@ -11,7 +11,7 @@ Page({
       avatarUrl: 'http://yanxuan.nosdn.127.net/8945ae63d940cc42406c3f67019c5cb6.png'
     },
     index: 0,
-    schools: [],
+    // schools: [],
     favoriteCount: 0,
     integral: 0,
     likeCount: 0,
@@ -30,7 +30,7 @@ Page({
     //获取用户的登录信息
     if (app.globalData.hasLogin) {
       let userInfo = wx.getStorageSync('userInfo');
-      this.querySchool()
+      // this.querySchool()
       this.setData({
         aboutShow: true,
         userInfo: userInfo,
@@ -92,53 +92,53 @@ Page({
     }
   },
 
-  schoolSelect: function(e) {
-    this.setData({
-      index: e.detail.value
-    });
-    this.changeSchool()
-  },
-  changeSchool: function(e) {
-    var _that = this;
-    var app = getApp();
-    wx.request({
-      url: app.globalData.domain.dev + 'people/school/change/',
-      method: 'GET',
-      data: {
-        uid: app.globalData.userInfo.userId,
-        index: _that.data.index
-      },
-      success: function(res) {
-        if (res.data.status != 1) {
-          wx.showToast({
-            title: res.data.message,
-            icon: 'none',
-          })
-          return;
-        }
-      }
-    })
-  },
-  querySchool: function(e) {
-    var _that = this;
-    wx.request({
-      url: app.globalData.domain.dev + 'people/school/query/',
-      method: 'GET',
-      data: {},
-      success: function(res) {
-        if (res.data.status != 1) {
-          wx.showToast({
-            title: res.data.message,
-            icon: 'none',
-          })
-          return;
-        }
-        _that.setData({
-          schools: res.data.data
-        })
-      }
-    })
-  },
+  // schoolSelect: function(e) {
+  //   this.setData({
+  //     index: e.detail.value
+  //   });
+  //   this.changeSchool()
+  // },
+  // changeSchool: function(e) {
+  //   var _that = this;
+  //   var app = getApp();
+  //   wx.request({
+  //     url: app.globalData.domain.dev + 'people/school/change/',
+  //     method: 'GET',
+  //     data: {
+  //       uid: app.globalData.userInfo.userId,
+  //       index: _that.data.index
+  //     },
+  //     success: function(res) {
+  //       if (res.data.status != 1) {
+  //         wx.showToast({
+  //           title: res.data.message,
+  //           icon: 'none',
+  //         })
+  //         return;
+  //       }
+  //     }
+  //   })
+  // },
+  // querySchool: function(e) {
+  //   var _that = this;
+  //   wx.request({
+  //     url: app.globalData.domain.dev + 'people/school/query/',
+  //     method: 'GET',
+  //     data: {},
+  //     success: function(res) {
+  //       if (res.data.status != 1) {
+  //         wx.showToast({
+  //           title: res.data.message,
+  //           icon: 'none',
+  //         })
+  //         return;
+  //       }
+  //       _that.setData({
+  //         schools: res.data.data
+  //       })
+  //     }
+  //   })
+  // },
   
 
   exitLogin: function () {

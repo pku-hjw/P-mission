@@ -16,7 +16,7 @@
   </view>
   <view class="middle">
     <view class="my-view-setting border-none" bindtap="aboutAPP">
-      <view class="my-txt-desc">关于PKU考拉</view>
+      <view class="my-txt-desc">关于P-Mission</view>
       <view class="my-icon icon-rignt middle-icon"></view>
     </view>
   </view>

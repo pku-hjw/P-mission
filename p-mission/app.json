@@ -24,7 +24,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#8B0012",
-    "navigationBarTitleText": "PKU考拉",
+    "navigationBarTitleText": "P-Mission",
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true
   },

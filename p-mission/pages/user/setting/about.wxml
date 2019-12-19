@@ -3,6 +3,6 @@
     <image class ="avator" src=""></image>
     <text class="version-txt">版本号：0.0.1</text>
     <text class="version-txt">产品&测试：111  | 开发：111</text>
-    <text class="desc-txt">PKU考拉demo</text>
+    <text class="desc-txt">P-Mission demo</text>
   </view>
 </view>

@@ -28,9 +28,10 @@
     <view class="person-setting-list">
       <view class="my-view-info">
         <view class="my-txt-desc">我的学校</view>
-        <picker class="picker-school" bindchange="schoolSelect" value="{{index}}" range="{{schools}}">
+        <!-- <picker class="picker-school" bindchange="schoolSelect" value="{{index}}" range="{{schools}}">
           <view class="my-icon icon-rignt-after middle-icon">{{schools[index]}}</view>
-        </picker>
+        </picker> -->
+        <view class="my-icon middle-icon">北京大学软微学院</view>
       </view>
       <view class="my-view-info" bindtap="jumpToSetting">
         <view class="my-txt-desc">设置</view>
