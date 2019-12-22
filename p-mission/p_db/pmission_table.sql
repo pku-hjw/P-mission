@@ -16,12 +16,13 @@ CREATE TABLE `pkukaola_goods` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `publish_user_id` int(11) DEFAULT '0' COMMENT '谁发布了商品',
   `title` varchar(127) NOT NULL DEFAULT '' COMMENT '商品名称',
-  `describe` text  COMMENT '商品简介',
+  `describe` text  COMMENT '商品简介,是富文本格式',
   `publish_address` varchar(255) DEFAULT '' COMMENT '发布地址',
   `price` decimal(10,2) DEFAULT '1.00' COMMENT '零售价格',
   -- `detail` text COMMENT '商品详细介绍，是富文本格式',
   `publish_date` date NOT NULL COMMENT '创建时间',
   `look_count` int(11) DEFAULT '0' COMMENT '浏览人数',
+  `comment_count` int(11) DEFAULT '0' COMMENT '评论次数',
   PRIMARY KEY (`id`)
   /* FOREIGN KEY (`category_id`) REFERENCES `pkukaola_category` (`category_id`) */
 );
@@ -45,6 +46,7 @@ CREATE TABLE `pkukaola_images` (
 DROP TABLE IF EXISTS `pkukaola_users`;
 CREATE TABLE `pkukaola_users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `username` varchar(63) NOT NULL COMMENT '用户名称',
   `password` varchar(63) NOT NULL DEFAULT '' COMMENT '用户密码',
   `gender` tinyint(3) NOT NULL DEFAULT '0' COMMENT '性别：0 未知， 1男， 1 女',
@@ -53,7 +55,7 @@ CREATE TABLE `pkukaola_users` (
   `avatar` varchar(255) NOT NULL DEFAULT '' COMMENT '用户头像图片',
   `weixin_openid` varchar(63) NOT NULL DEFAULT '' COMMENT '微信登录openid',
   `look_count` int(11) DEFAULT '0' COMMENT '浏览次数',
-  `comment_count` int(11) DEFAULT '0' COMMENT '评论次数',
+  `publish_count` int(11) DEFAULT '0' COMMENT '发布次数',
   `address` varchar(255) DEFAULT '' COMMENT '地址',
   `school` varchar(255) DEFAULT '' COMMENT '学校',
   PRIMARY KEY (`user_id`)

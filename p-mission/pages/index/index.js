@@ -10,7 +10,7 @@ Page({
     queryType:1,
     hasMore: true,
     start: 0,
-    limit: 24,
+    limit: 24
   },
 
   onPullDownRefresh: function () {
@@ -146,7 +146,7 @@ Page({
             price: _data[i].price,
             title: _data[i].title,
             desc: _data[i].descible,
-            // cover: _data[i].cover.path,
+            cover: _data[i].cover.path,
             publis_date: _data[i].publish_date
             // tags: _data[i].tags,
             // is_donation: _data[i].is_donation
