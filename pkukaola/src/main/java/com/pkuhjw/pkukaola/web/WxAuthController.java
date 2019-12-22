@@ -108,49 +108,6 @@ public class WxAuthController {
     }
 
 
-
-    /**
-     * 账号信息更新
-     *
-     * @param body    请求内容
-     *                {
-     *                password: xxx,
-     *                mobile: xxx
-     *                code: xxx
-     *                }
-     *                其中code是手机验证码，目前还不支持手机短信验证码
-     * @param request 请求对象
-     * @return 登录结果
-     * 成功则 { errno: 0, errmsg: '成功' }
-     * 失败则 { errno: XXX, errmsg: XXX }
-     */
-    @PostMapping("profile")
-    public Object profile(@LoginUser Integer userId, @RequestBody String body, HttpServletRequest request) {
-        if(userId == null){
-            return ResponseUtil.unlogin();
-        }
-        String avatar = JacksonUtil.parseString(body, "avatar");
-        Byte gender = JacksonUtil.parseByte(body, "gender");
-        String nickname = JacksonUtil.parseString(body, "nickname");
-
-        PkukaolaUser user = userService.findById(userId);
-        if(!StringUtils.isEmpty(avatar)){
-            user.setAvatar(avatar);
-        }
-        if(gender != null){
-            user.setGender(gender);
-        }
-        if(!StringUtils.isEmpty(nickname)){
-            user.setNickname(nickname);
-        }
-
-        if (userService.updateById(user) == 0) {
-            return ResponseUtil.updatedDataFailed();
-        }
-
-        return ResponseUtil.ok();
-    }
-
     /**
      * 微信手机号码绑定
      *
@@ -173,6 +130,27 @@ public class WxAuthController {
             return ResponseUtil.updatedDataFailed();
         }
         return ResponseUtil.ok();
+    }
+
+    @GetMapping("phone/update")
+    public Object changePhone(@LoginUser Integer userId, @RequestParam String phone) {
+        PkukaolaUser user = userService.findById(userId);
+        user.setMobile(phone);
+        if (userService.updateById(user) == 0) {
+            return ResponseUtil.updatedDataFailed();
+        }
+        return ResponseUtil.ok();
+    }
+
+    @GetMapping("phone")
+    public Object getPhone(@LoginUser Integer userId) {
+        PkukaolaUser user = userService.findById(userId);
+        if (userService.updateById(user) == 0) {
+            return ResponseUtil.updatedDataFailed();
+        }
+        Map<Object, Object> data = new HashMap<Object, Object>();
+        data.put("phone", user.getMobile());
+        return ResponseUtil.ok(data);
     }
 
     @PostMapping("logout")

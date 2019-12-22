@@ -11,11 +11,6 @@ Page({
       url: 'about',
     })
   },
-  editPhone: function (e) {
-    wx.navigateTo({
-      url: 'phoneedit',
-    })
-  },
   editAddress: function(e) {
     wx.navigateTo({
       url: 'addressedit',
