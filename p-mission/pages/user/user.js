@@ -13,14 +13,13 @@ Page({
     index: 0,
     // schools: [],
     favoriteCount: 0,
-    integral: 0,
+    phone: "请留下您的联系方式",
     likeCount: 0,
     lookCount: 0,
     publishCount: 0
   },
 
   onLoad: function (options) {
-
   },
   onReady: function () {
 
@@ -30,7 +29,7 @@ Page({
     //获取用户的登录信息
     if (app.globalData.hasLogin) {
       let userInfo = wx.getStorageSync('userInfo');
-      // this.querySchool()
+      this.getPhone()
       this.setData({
         aboutShow: true,
         userInfo: userInfo,
@@ -79,7 +78,7 @@ Page({
     }
   },
 
-  jumpToMycollection() {
+  jumpToMycollection: function(e) {
     if(app.globalData.hasLogin){
       wx.navigateTo({
       url: 'mytrace/mytrace?type=' + e.currentTarget.id,
@@ -156,6 +155,33 @@ Page({
         }
       }
     })
+  },
+
+  editPhone: function (e) {
+    if (app.globalData.hasLogin) {
+      wx.navigateTo({
+        url: "/pages/user/setting/phoneedit"
+      });
+    }
+    else {
+      wx.navigateTo({
+        url: "/pages/auth/login/login"
+      });
+    }
+  },
+
+  getPhone: function (e) {
+    var that = this;
+    util.request(api.AuthGetPhone).then(function (res) {
+      console.log(res);
+      if (res.errno != 0) {
+        return;
+      }
+      that.setData({
+        phone: res.data.phone
+      });
+    }
+    )
   }
 
 })

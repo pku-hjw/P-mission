@@ -1,8 +1,8 @@
 // 以下是业务服务器API地址
 // 本机开发时使用
-//var WxApiRoot = 'http://localhost:8081/wx/';
+var WxApiRoot = 'http://localhost:8081/wx/';
 // 局域网测试使用
-var WxApiRoot = 'http://182.254.200.15:8081/wx/';
+//var WxApiRoot = 'http://182.254.200.15:8081/wx/';
 // 云平台上线时使用
 // var WxApiRoot = 'https://litemall.menethil.com.cn/wx/';
 // var WxApiRoot = 'https://www.menethil.com.cn/wx/';
@@ -15,6 +15,8 @@ module.exports = {
   CatalogAll: WxApiRoot + 'catalog/all', //分类目录当前分类数据接口
 
   AuthLoginByWeixin: WxApiRoot + 'auth/login_by_weixin', //微信登录
+  AuthBindPhone: WxApiRoot + 'auth/phone/update', //绑定微信手机号
+  AuthGetPhone:WxApiRoot + 'auth/phone', //得到用户号码
 
   GoodsCount: WxApiRoot + 'goods/count', //统计商品总数
   GoodsList: WxApiRoot + 'goods/list', //获得商品列表

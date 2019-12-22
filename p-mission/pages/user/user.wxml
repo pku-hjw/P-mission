@@ -9,10 +9,14 @@
   </view>
   <view class="middle">
     <view class="person-list">
-      <view class="my-view-info">
-        <view class="my-txt-desc">我的积分</view>
-        <view>{{integral}}</view>
-      </view>
+      <!-- <view class="my-view-info">
+        <view class="my-txt-desc">我的手机号</view>
+        <view>{{phone}}</view>
+      </view> -->
+      <view class="my-view-info" bindtap="editPhone">
+      <view class="my-txt-desc">联系方式</view>
+      <view class="my-icon icon-rignt-after middle-icon">{{phone}}</view>
+    </view>
       <view class="my-view-info" id="1" bindtap="jumpToRelease">
         <view class="my-txt-desc">我的发布</view>
         <view class="my-icon icon-rignt-after middle-icon">{{publishCount}}</view>

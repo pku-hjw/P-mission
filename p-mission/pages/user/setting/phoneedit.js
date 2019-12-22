@@ -1,4 +1,8 @@
-// pages/user/setting/phoneedit.js
+var util = require('../../../utils/util.js');
+var api = require('../../../config/api.js');
+
+var app = getApp();
+
 var interval = null //倒计时函数
 Page({
 
@@ -80,29 +84,24 @@ Page({
       }
     })
   },
-  editPhone: function(e) {
-    var _that = this;
-    var app = getApp();
-    wx.request({
-      url: app.globalData.domain.dev + 'people/telephone/update/',
-      method: 'GET',
-      data: {
-        uid: app.globalData.userInfo.userId,
-        telephone: _that.data.telephone
-      },
-      success: function (res) {
-        if (res.data.status != 1) {
-          wx.showToast({
-            title: res.data.message,
-          })
+
+
+  editPhone: function (e) {
+    var that = this;
+    util.request(api.AuthBindPhone, {
+        phone: that.data.telephone
+      },'GET').then(function(res) {
+        console.log(res);
+        if (res.errno != 0) {
           return;
         }
-        app.globalData.userInfo.telephone = _that.data.telephone
+        app.globalData.userInfo.telephone = that.data.telephone
         wx.showToast({
           title: '修改成功',
           icon: 'success',
         })
       }
-    })
+    )
   }
+
 })
