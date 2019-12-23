@@ -189,12 +189,15 @@
 }
 
 .btn-contact {
-  width: 100px;
-  height: 24px;
-  background-color: #FF0000;
+  width: 80px;
+  height: 22px;
+  background-color: #960000;
   margin: auto auto; 
   line-height: 24px;
   border-radius: 2px;
+  font-size: 12px;
+  font-weight: 5px;
+  color: #fff;
 }
 
 .btn {
