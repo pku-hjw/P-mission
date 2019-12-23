@@ -7,10 +7,7 @@
       <input bindinput="bindCaptchaChange" class="input-captcha" placeholder="尚未开发" />
       <view><button disabled='{{disabled}}' class="send-msg-code" data-id="2" bindtap="getVerificationCode">{{time}}</button></view>
     </view>
-    <view class="captcha item">
-      <input bindinput="bindCaptchaChange" class="input-captcha" placeholder="输入号码确定即可" />
-      <image bindtap="changeCode" src="{{captcha}}" style='height:40px;width:100px;'></image>
-    </view>
+    
     <view class="btn-edit" bindtap="editPhone">
       <view class="txt-publish-show">
         <text class="txt-publish">确定修改</text>

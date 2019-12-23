@@ -18,6 +18,7 @@ module.exports = {
   AuthLoginByWeixin: WxApiRoot + 'auth/login_by_weixin', //微信登录
   AuthBindPhone: WxApiRoot + 'auth/phone/update', //绑定微信手机号
   AuthGetPhone:WxApiRoot + 'auth/phone', //得到用户号码
+  AuthGetUserInfo:WxApiRoot + 'auth/info', //得到用户信息
 
   GoodsCount: WxApiRoot + 'goods/count', //统计商品总数
   GoodsList: WxApiRoot + 'goods/list', //获得商品列表
