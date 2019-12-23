@@ -9,14 +9,70 @@
       <button plain="true" bindtap="goLogin">去登录</button>
     </view>
   </view>
-  <view class="scoller" wx:else>
+  <view class="scoller" wx:if="{{switchstatus==0&&hasLogin}}">
+    <view class="top">
+      <view class="input-area">
+        <view class="title">
+          <input bindinput="bindTitleInputChange" class="input-title" placeholder="为任务起个标题" />
+        </view>
+        <view class="discribe">
+          <textarea bindinput="bindDiscribeInputChange" class="txtarea-desc" placeholder="描述一下你的需求" />
+        </view>
+      </view>
+      <view class="image-list">
+        <block wx:for-items="{{imageList}}" wx:for-item="image" wx:key="*item">
+          <view class="image-box">
+            <image class="image" src="{{image}}" mode="aspectFit"></image>
+          </view>
+        </block>
+        <view class="{{imageList.length >= 3 ? 'hide':'show'}} image-box-add">
+          <view class=".big-icon .icon-add" bindtap='didPressChooesImage'></view>
+        </view>
+      </view>
+      <view class="location">
+        <view class="location-info">
+          <view class="icon-location-fill middle-icon"></view>
+          <view class="txt-address">{{location}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="middle">
+      <view class="base-info">
+        <view class="price list-item">
+          <view class="form-list">
+            <view class="txt-category">悬赏金额</view>
+              <input bindinput="bindPriceInputChange" class="input-title" placeholder="" />
+          </view>
+        </view>
+        <view class="category list-item">
+          <picker bindchange="bindCategoryChange" value="{{mission_Index}}" range="{{mission_categories}}">
+            <view class="form-list">
+              <view class="txt-category">分类</view>
+              <view class="icon-rignt-after middle-icon">{{mission_categories[cIndex]}}</view>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="fixed">
+    <view class="fixed-container"wx:if="{{switchstatus==0&&hasLogin}}">
+      <view class="btn-publish" bindtap="publishMission">
+        <view class="txt-publish-show">
+          <text class="txt-publish">确定发布</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 商品界面 -->
+  <view class="scoller" wx:if="{{switchstatus==1&&hasLogin}}">
     <view class="top">
       <view class="input-area">
         <view class="title">
           <input bindinput="bindTitleInputChange" class="input-title" placeholder="来个响亮的标题" />
         </view>
-        <view class="desc">
-          <textarea bindinput="bindDescInputChange" class="txtarea-desc" placeholder="描述一下你的宝贝" />
+        <view class="discribe">
+          <textarea bindinput="bindDiscribeInputChange" class="txtarea-desc" placeholder="描述一下你的宝贝" />
         </view>
       </view>
       <view class="image-list">
@@ -79,12 +135,12 @@
         </view>
       </view>
     </view>
-    <view class="fixed">
+  </view>
+  <view class="fixed"wx:if="{{switchstatus==1&&hasLogin}}">
     <view class="fixed-container">
       <view class="btn-publish" bindtap="publishGoods">
         <view class="txt-publish-show">
           <text class="txt-publish">确定发布</text>
-          </view>
         </view>
       </view>
     </view>
