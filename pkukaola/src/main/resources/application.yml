@@ -46,14 +46,6 @@ pkukaola:
       secretId: AKIDOccMr856uoU1Tsa2MQL5aqseBUWRrb5i
       secretKey: XqtgEhIdrupTs4ygaWlkUUXv3w3FiwuD
       region: ap-shanghai
-<<<<<<< HEAD
+
       bucketName: vytech-1300096589
-    # 七牛云对象存储配置信息
-    qiniu:
-      endpoint: http://pd5cb6ulu.bkt.clouddn.com
-      accessKey: 111111
-      secretKey: xxxxxx
-      bucketName: litemall
-=======
-      bucketName: vytech-1300096589
->>>>>>> 6425c7f8039a399844186f5d58922c58c7df278b
+

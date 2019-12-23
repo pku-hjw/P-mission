@@ -8,6 +8,10 @@
       <text>还没有登录</text>
       <button plain="true" bindtap="goLogin">去登录</button>
     </view>
+  </view >
+  <view class="sort-container" wx:if="{{hasLogin}}">
+    <view class="lasted-button sort-button" bindtap="publish_mission" style="background-color:{{sort_button_back_color[0]}}">发布任务</view>
+    <view class="hot-button sort-button" bindtap="publish_goods" style="background-color:{{sort_button_back_color[1]}}">发布商品</view>
   </view>
   <view class="scoller" wx:if="{{switchstatus==0&&hasLogin}}">
     <view class="top">

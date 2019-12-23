@@ -18,6 +18,8 @@ App({
     //   })
     // })
     this.getUserInfo()
+    console.log(this.globalData.hasLogin)
+    console.log(this.globalData.userInfo.userId)
   },
 
   onShow: function (options) {
@@ -26,6 +28,10 @@ App({
     }).catch(() => {
       this.globalData.hasLogin = false;
     });
+  },
+  test:function(){
+    console.log(this.globalData.userInfo.userId)
+    console.log(this.globalData.hasLogin)
   },
 
   globalData: {
@@ -59,9 +65,12 @@ App({
       if (res.errno != 0) {
         return;
       }
-      that.setData({
-        userId: res.data.id
-      });
+      // that.setData({
+      //   [that.globalData.userInfo.userId]:'res.data.id',
+      //   [that.globaldata.hasLogin]:true
+      // });
+      that.globalData.userInfo.userId=res.data.id
+      that.globalData.hasLogin=true
     }
     )
   }

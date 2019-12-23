@@ -30,8 +30,8 @@ function initQiniu() {
 var app = getApp()
 Page({
   data: {
-    /* 0 表示商品 1 表示任务*/
-    hasLogin: false,
+    hasLogin: app.globalData.hasLogin,
+    // hasLogin: true,
     switchstatus: 0,
     imageList: [],
     categories: ["衣服", "鞋子", "书本", "电器", "其他"],
@@ -57,62 +57,65 @@ Page({
   },
 
   //事件处理函数
-  onLoad: function () {
+  onLoad: function() {
     console.log('onLoad')
     var that = this;
-
+    this.setData({
+      hasLogin: app.globalData.hasLogin
+    })
+    console.log(app.globalData.hasLogin)
+    console.log(app.globalData.hasLogin)
     //定位
     that.getCityNameOFLocation()
   },
   goLogin() {
-  wx.navigateTo({
-    url: "/pages/auth/login/login"
-  });
-},
-hasLogin: false,
-  didPressChooesImage: function () {
+    wx.navigateTo({
+      url: "/pages/auth/login/login"
+    });
+  },
+  hasLogin: false,
+  didPressChooesImage: function() {
     var _this = this;
-    didPressChooesImage(_this, function (result) {
+    didPressChooesImage(_this, function(result) {
       _this.data.imageList.push(result.imageURL);
       _this.setData({
         imageList: _this.data.imageList
       });
-    }, function (error) {
-    });
+    }, function(error) {});
   },
-  bindTitleInputChange: function (e) {
+  bindTitleInputChange: function(e) {
     this.setData({
       'title': e.detail.value
     })
   },
-  bindDiscribeInputChange: function (e) {
+  bindDiscribeInputChange: function(e) {
     this.setData({
       'discribe': e.detail.value
     })
   },
-  bindPriceInputChange: function (e) {
+  bindPriceInputChange: function(e) {
     this.setData({
       'mission_price': e.detail.value
     })
   },
-  clickEditPrice: function (e) {
+  clickEditPrice: function(e) {
     var _that = this;
     wx.navigateTo({
       url: 'edit-price/edit-price?' + 'now=' + _that.data.price.now + '&old=' + _that.data.price.old + '&freight=' + _that.data.price.freight,
     })
   },
-  clickEditTag: function (e) {
+  clickEditTag: function(e) {
     var _that = this;
     wx.navigateTo({
       url: 'edittag/edittag?tagStr=' + _that.data.tagStr,
     })
   },
-  bindCategoryChange: function (e) {
+  bindCategoryChange: function(e) {
     this.setData({
       cIndex: e.detail.value
     })
   },
-  bindPickerChange: function (e) {
+  bindPickerChange: function(e) {
     this.setData({
       dIndex: e.detail.value
     })
@@ -120,29 +123,29 @@ hasLogin: false,
   /**
    * 测试函数
    */
-  test: function () {
+  test: function() {
     wx.navigateTo({
       url: '../add/addmission/addmission'
     })
     console.log("test")
   },
   /*两个发布函数*/
-  publish_mission: function () {
+  publish_mission: function() {
     this.setData({
-      sort_button_back_color: ["#C0C4CC", "#fff"],
-      switchstatus: 0
-    }),
+        sort_button_back_color: ["#C0C4CC", "#fff"],
+        switchstatus: 0
+      }),
       console.log("publishmission"),
       wx.navigateTo({
         url: '../index/index',
-        success: function (res) {
+        success: function(res) {
           console.log("success")
         },
-        fail: function (res) { },
-        complete: function (res) { },
+        fail: function(res) {},
+        complete: function(res) {},
       })
   },
-  publish_goods: function () {
+  publish_goods: function() {
     this.setData({
       switchstatus: 1,
       sort_button_back_color: ["#fff", "#C0C4CC"],
@@ -150,13 +153,13 @@ hasLogin: false,
     })
     console.log("publishgoods")
   },
-  publishGoods: function (e) {
+  publishGoods: function(e) {
     var _that = this;
     var app = getApp();
     console.log(_that.data.discribe)
     console.log(_that.data.title)
     wx.request({
-      url: 'http://localhost:8080/goods/addgood',
+      url: api.GoodsPost,
 
       method: 'POST',
       header: {
@@ -174,7 +177,7 @@ hasLogin: false,
         'tags': _that.data.tagStr,
         'is_donation': _that.data.dIndex
       },
-      success: function (res) {
+      success: function(res) {
         //console.log(JSON.parse(res))
         wx.showToast({
           title: '发布成功',
@@ -187,13 +190,13 @@ hasLogin: false,
       }
     })
   },
-  publishMission: function (e) {
+  publishMission: function(e) {
     var _that = this;
     var app = getApp();
     console.log(_that.data.discribe)
     console.log(_that.data.title)
     wx.request({
-      url: 'http://localhost:8080/mission/addmissison',
+      url: api.MissionPost,
       method: 'POST',
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -211,7 +214,7 @@ hasLogin: false,
         'missionclass': _that.data.cIndex,
         'is_donation': _that.data.dIndex
       },
-      success: function (res) {
+      success: function(res) {
         //console.log(JSON.parse(res))
         wx.showToast({
           title: '发布成功',
@@ -224,11 +227,11 @@ hasLogin: false,
       }
     })
   },
-  getCityNameOFLocation: function () {
+  getCityNameOFLocation: function() {
     var that = this;
     wx.getLocation({
       type: 'wgs84', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
-      success: function (res) {
+      success: function(res) {
         console.log("定位成功");
         var locationString = res.latitude + "," + res.longitude;
         console.log(locationString);
@@ -240,7 +243,7 @@ hasLogin: false,
           },
           method: 'GET',
           // header: {}, 
-          success: function (res) {
+          success: function(res) {
             // success
 
             var app = getApp();
@@ -252,21 +255,21 @@ hasLogin: false,
               location: formatLocationDesc()
             })
           },
-          fail: function () {
+          fail: function() {
             // fail
             console.log("请求失败");
           },
-          complete: function () {
+          complete: function() {
             // complete
             console.log("请求完成");
           }
         })
       },
-      fail: function () {
+      fail: function() {
         // fail
         console.log("定位失败");
       },
-      complete: function () {
+      complete: function() {
         // complete
         console.log("定位完成");
       }
@@ -292,7 +295,7 @@ function didPressChooesImage(that, resolve, reject) {
   // 微信 API 选文件
   wx.chooseImage({
     count: 1,
-    success: function (res) {
+    success: function(res) {
       var filePath = res.tempFilePaths[0];
       // 交给七牛上传
       qiniuUploader.upload(filePath, (res) => {
@@ -300,8 +303,7 @@ function didPressChooesImage(that, resolve, reject) {
       }, (error) => {
         reject(error);
         // console.error('error: ' + JSON.stringify(error));
-      }
-      );
+      });
     }
   })
 }

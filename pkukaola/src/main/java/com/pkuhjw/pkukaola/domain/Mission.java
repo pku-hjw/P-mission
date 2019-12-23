@@ -45,6 +45,9 @@ public class Mission {
         this.publisher_location = publisher_location;
     }
 
+    public Mission() {
+    }
+
     public float getPrice() {
         return price;
     }
