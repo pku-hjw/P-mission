@@ -4,7 +4,7 @@
 // var WxApiRoot = 'http://localhost:8080';
 // 局域网测试使用
 var WxApiRoot = 'http://182.254.200.15:8081/wx/';
-var WxApiGoods = 'http://182.254.200.15:8081/user/';
+var WxApiGoods = 'http://182.254.200.15:8080/user/';
 // 云平台上线时使用
 // var WxApiRoot = 'https://litemall.menethil.com.cn/wx/';
 // var WxApiRoot = 'https://www.menethil.com.cn/wx/';
@@ -24,9 +24,10 @@ module.exports = {
   GoodsCount: WxApiRoot + 'goods/count', //统计商品总数
   GoodsList: WxApiRoot + 'goods/list', //获得商品列表
   GoodsCategory: WxApiRoot + 'goods/category', //获得分类数据
-  GoodsDetail: WxApiRoot + 'goods/detail', //获得商品的详情
   GoodsRelated: WxApiRoot + 'goods/related', //商品详情页的关联商品（大家都在看）
   GoodsPost: WxApiRoot +'goods/addgood',//发布商品
+  GoodsQuery: WxApiGoods+'goods',//查询商品列表
+  GoodsDetail:WxApiGoods+'goods/details/',//对应商品详细信息
 
   BrandList: WxApiRoot + 'brand/list', //品牌列表
   BrandDetail: WxApiRoot + 'brand/detail', //品牌详情

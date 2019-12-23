@@ -1,3 +1,8 @@
+var util = require('../../utils/util.js');
+var api = require('../../config/api.js');
+var user = require('../../utils/user.js');
+var app = getApp();
+
 Page({
   onLoad: function() {
     // 定位
@@ -118,7 +123,7 @@ Page({
     var app = getApp();
     var _that = this
     wx.request({
-      url: 'http://182.254.200.15:8080/user/goods',
+      url:api.GoodsQuery,
       method: 'GET',
       data:{
         'type': _that.data.queryType,

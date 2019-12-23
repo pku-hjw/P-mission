@@ -1,3 +1,5 @@
+var api = require('../../../config/api.js');
+
 // pages/test/item-detail/item-detail.js
 Page({
   data: {
@@ -294,7 +296,7 @@ Page({
     var app = getApp();
     wx.request({
       // url: 'http://localhost:8080/user/test',
-      url:'http://182.254.200.15:8080/user/goods/details/',
+      url:api.GoodsDetail,
       method: 'GET',
       data: {
         goods_id: _that.data.goodsId,
@@ -317,7 +319,7 @@ Page({
           sellerPhone: data.user_vo.telephone,
           publishDesc: data.publish_date + " 发布于 " + data.publish_address,
           price: data.price,
-          oldPrice: data.price*(Math.random()+1).toFixed(0,2),
+          oldPrice: data.price*(Math.random()+1).toFixed(2),
           // freight: data.freight,
           describe: data.title + ", " + data.describe,
           // isDonation: data.is_donation,
