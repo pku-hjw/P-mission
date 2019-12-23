@@ -10,25 +10,26 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
+@RequestMapping("/wx")
 public class WxMissionController {
     @Autowired
     private MissionService missionService;
 
 
-    @RequestMapping(value = "/mission/getAllMission")
+    @RequestMapping(value = "mission/getAllMission")
     @ResponseBody
     public List<Mission> findAllMission(){
         return missionService.findAllMission();
     }
 
-    @RequestMapping(value = "/mission/getMission")
+    @RequestMapping(value = "mission/getMission")
     @ResponseBody
     public Mission findMission(@RequestParam(value = "missionid") int   missionid){
         System.out.println(missionid);
         return missionService.getmission(missionid);
     }
     /* 添加任务 */
-    @RequestMapping(value="/mission/addmissison")
+    @RequestMapping(value="mission/addmissison")
     public String addMission(
             @RequestParam (value = "missionname") String missionname,
             @RequestParam (value = "discribe") String discribe,
@@ -43,13 +44,13 @@ public class WxMissionController {
         return missionService.addMission(missionname,discribe,missionclass,publisherid,publisher,price, image_list,publisher_location);
     }
     /* 评论 */
-    @RequestMapping(value = "/comment/getcomment")
+    @RequestMapping(value = "comment/getcomment")
     @ResponseBody
     public List<Comment> getComment(@RequestParam(value = "missionid") int missionid){
         return missionService.getComment(missionid);
     }
     /* 添加评论 */
-    @RequestMapping(value = "/comment/addComment")
+    @RequestMapping(value = "comment/addComment")
     public String addComment(
             @RequestParam (value = "missionid") int missionid,
             @RequestParam (value = "userid") int userid,
@@ -59,7 +60,7 @@ public class WxMissionController {
         return missionService.addComment(missionid,userid,content);
     }
     /* 添加商品 */
-    @RequestMapping(value="/goods/addgood")
+    @RequestMapping(value="goods/addgood")
     public String addGoods(
             @RequestParam (value = "address") String address,
             @RequestParam (value = "price") float good_price,
