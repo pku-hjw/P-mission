@@ -118,7 +118,7 @@ Page({
     var app = getApp();
     var _that = this
     wx.request({
-      url: 'http://localhost:8080/user/goods',
+      url: 'http://182.254.200.15:8080/user/goods',
       method: 'GET',
       data:{
         'type': _that.data.queryType,

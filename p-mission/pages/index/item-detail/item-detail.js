@@ -259,23 +259,42 @@ Page({
       }
     })
   },
-  contactSeller: function(e) {
-    var app = getApp();
-    if (! this.data.sellerPhone) {
+  // contactSeller: function(e) {
+  //   var app = getApp();
+  //   if (! this.data.sellerPhone) {
+  //     wx.showToast({
+  //       title: '对方未留下联系方式',
+  //     })
+  //   }
+  //   // wx.makePhoneCall({
+  //   //   phoneNumber: app.globalData.userInfo.telephone,
+  //   // })
+  // },
+  contactSeller: function (e) {
+    if (!this.data.sellerPhone) {
       wx.showToast({
         title: '对方未留下联系方式',
       })
+    }else{
+      wx.showModal({
+        title: '卖家的电话号码',
+        content:this.data.sellerPhone,
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
     }
-    wx.makePhoneCall({
-      phoneNumber: app.globalData.userInfo.telephone,
-    })
   },
   goodsDetail: function (e) {
     var _that = this;
     var app = getApp();
     wx.request({
       // url: 'http://localhost:8080/user/test',
-      url:'http://localhost:8080/user/goods/details/',
+      url:'http://182.254.200.15:8080/user/goods/details/',
       method: 'GET',
       data: {
         goods_id: _that.data.goodsId,
@@ -298,10 +317,10 @@ Page({
           sellerPhone: data.user_vo.telephone,
           publishDesc: data.publish_date + " 发布于 " + data.publish_address,
           price: data.price,
-          oldPrice: data.old_price,
+          oldPrice: data.price*(Math.random()+1).toFixed(0,2),
           // freight: data.freight,
-          describe: data.title + ", " + data.descible,
-          isDonation: data.is_donation,
+          describe: data.title + ", " + data.describe,
+          // isDonation: data.is_donation,
           lookCount: data.look_count,
           commentCount: data.comment_count,
           // likeCount: data.like_count,
