@@ -90,54 +90,6 @@ Page({
       });
     }
   },
-
-  // schoolSelect: function(e) {
-  //   this.setData({
-  //     index: e.detail.value
-  //   });
-  //   this.changeSchool()
-  // },
-  // changeSchool: function(e) {
-  //   var _that = this;
-  //   var app = getApp();
-  //   wx.request({
-  //     url: app.globalData.domain.dev + 'people/school/change/',
-  //     method: 'GET',
-  //     data: {
-  //       uid: app.globalData.userInfo.userId,
-  //       index: _that.data.index
-  //     },
-  //     success: function(res) {
-  //       if (res.data.status != 1) {
-  //         wx.showToast({
-  //           title: res.data.message,
-  //           icon: 'none',
-  //         })
-  //         return;
-  //       }
-  //     }
-  //   })
-  // },
-  // querySchool: function(e) {
-  //   var _that = this;
-  //   wx.request({
-  //     url: app.globalData.domain.dev + 'people/school/query/',
-  //     method: 'GET',
-  //     data: {},
-  //     success: function(res) {
-  //       if (res.data.status != 1) {
-  //         wx.showToast({
-  //           title: res.data.message,
-  //           icon: 'none',
-  //         })
-  //         return;
-  //       }
-  //       _that.setData({
-  //         schools: res.data.data
-  //       })
-  //     }
-  //   })
-  // },
   
 
   exitLogin: function () {

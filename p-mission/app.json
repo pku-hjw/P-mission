@@ -19,7 +19,8 @@
     "pages/logs/logs",
     "pages/auth/login/login",
     "pages/user/release/release",
-    "pages/user/star/star"
+    "pages/user/star/star",
+    "pages/mission/mission"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -41,7 +42,7 @@
       {
         "iconPath": "image/social.png",
         "selectedIconPath": "image/social.png",
-        "pagePath": "pages/social/social",
+        "pagePath": "pages/mission/mission",
         "text": "任务"
       },
       {

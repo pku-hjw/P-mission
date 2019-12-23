@@ -1,0 +1,54 @@
+<!--pages/social/topic/topic.wxml-->
+<import src="../../../template/listcomment"/>
+<view class="container">
+<button bindtap="test">test</button>
+  <view class="top">
+    <view class="content">
+      <view class="title">
+        <text>{{mission_title}}</text>
+      </view>
+      <view class="desc">
+        <text>{{mission_discribe}}</text>
+      </view>
+      <view class="image-list">
+        <view class="image-list-item" wx:for="{{imageList}}" >
+          <image class="image-item" src="{{item.src}}"></image>
+        </view>
+      </view>
+      <view class="publish-info">
+        <text class="publish-info-auther">{{mission_pulisher}}</text>
+        <text> · </text>
+        <text class="publish-info-date">06-05</text>
+      </view>
+      <view class="other-info">
+        <view class="look-comment-count">
+          <view class="look-count">
+            <text class="small-icon icon-attention-light"></text>
+            <text>{{mission_lookCount}}</text>
+          </view>
+          <view class="comment-count">
+            <text class="small-icon icon-comment"></text>
+            <text>{{mission_commentCount}}</text>
+          </view>
+        </view>
+        <view class="focuson">
+          <text class="small-icon icon-focuson"></text>
+          <text>关注</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="interval">
+  </view>
+  <view class="middle">
+    <template is="listcomment" data="{{commentdata}}"/>
+  </view>
+  <view class="topic-publish">
+    <view class="btn-container">
+      <input class="input-topic" placeholder="留下你的评论···" value="{{userComment}}" bindblur="bindblur"></input>
+      <button class="submit" bindtap="submit">提交</button>
+      <!-- <button class="submit" >提交</button> -->
+    </view>
+  </view>
+</view>
+

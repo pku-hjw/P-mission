@@ -24,21 +24,12 @@ Page({
   onLoad: function (options) {
     var app = getApp();    
     this.setData({
-      telephone: app.globalData.userInfo.telephone,
-      captcha: app.globalData.domain.dev + '/people/captcha/?uid=' + app.globalData.userInfo.userId + '&' + Math.random()
+      telephone: app.globalData.userInfo.telephone
     })
   },
   bindPhoneInputChange: function(e) {
     this.setData({
       telephone: e.detail.value
-    })
-  },
-  changeCode: function(e) {
-    var app = getApp();
-    var captchaUrl = app.globalData.domain.dev + '/people/captcha/?uid=' + app.globalData.userInfo.userId + '&' + Math.random();
-    console.log(captchaUrl);
-    this.setData({
-      captcha: captchaUrl
     })
   },
   getCode: function (options) {

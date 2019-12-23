@@ -1,8 +1,10 @@
 // 以下是业务服务器API地址
 // 本机开发时使用
-// var WxApiRoot = 'http://localhost:8081/wx/';
+//var WxApiRoot = 'http://localhost:8081/wx/';
+// var WxApiRoot = 'http://localhost:8080';
 // 局域网测试使用
 var WxApiRoot = 'http://182.254.200.15:8081/wx/';
+var WxApiGoods = 'http://182.254.200.15:8081/user/';
 // 云平台上线时使用
 // var WxApiRoot = 'https://litemall.menethil.com.cn/wx/';
 // var WxApiRoot = 'https://www.menethil.com.cn/wx/';
@@ -17,12 +19,14 @@ module.exports = {
   AuthLoginByWeixin: WxApiRoot + 'auth/login_by_weixin', //微信登录
   AuthBindPhone: WxApiRoot + 'auth/phone/update', //绑定微信手机号
   AuthGetPhone:WxApiRoot + 'auth/phone', //得到用户号码
+  AuthGetUserInfo:WxApiRoot + 'auth/info', //得到用户信息
 
   GoodsCount: WxApiRoot + 'goods/count', //统计商品总数
   GoodsList: WxApiRoot + 'goods/list', //获得商品列表
   GoodsCategory: WxApiRoot + 'goods/category', //获得分类数据
   GoodsDetail: WxApiRoot + 'goods/detail', //获得商品的详情
   GoodsRelated: WxApiRoot + 'goods/related', //商品详情页的关联商品（大家都在看）
+  GoodsPost: WxApiRoot +'goods/addgood',//发布商品
 
   BrandList: WxApiRoot + 'brand/list', //品牌列表
   BrandDetail: WxApiRoot + 'brand/detail', //品牌详情
@@ -36,7 +40,12 @@ module.exports = {
   CartGoodsCount: WxApiRoot + 'cart/goodscount', // 获取购物车商品件数
   CartCheckout: WxApiRoot + 'cart/checkout', // 下单前信息确认
 
-  CommentPost: WxApiRoot + 'comment/post', //发表评论
+  CommentPost: WxApiRoot + 'comment/addComment', //发表评论
+  CommentGet: WxApiRoot +'comment/getcomment', //获取评论
+
+  GetAllMission: WxApiRoot +'mission/getAllMission',//获取全部任务
+  GetMission: WxApiRoot +'mission/getMission',//获取单个任务
+  MissionPost: WxApiRoot + 'mission/addmissison',//发布任务
 
   TopicList: WxApiRoot + 'topic/list', //专题列表
   TopicDetail: WxApiRoot + 'topic/detail', //专题详情

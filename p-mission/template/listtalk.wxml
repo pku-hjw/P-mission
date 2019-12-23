@@ -1,14 +1,14 @@
 <template name="listtalk">
   <view class="talk-list-view">
     <view class="talk-item-interval"></view>
-    <block wx:for-items="{{data}}" wx:for-item="item" wx:key="*item">
-      <navigator url="/pages/social/topic/topic?topic_id={{item.talkId}}" class="talk-list-item">
+    <block wx:for-items="{{missiondata}}" wx:for-item="item" wx:key="*item">
+      <navigator url="/pages/mission/missioncontext/missioncontext?missionid={{item.missionid}}" class="talk-list-item">
         <view class="talk-item-content">
           <view class="talk-item-title">
-            <view>{{item.title}}</view>
+            <view>{{item.missionname}}</view>
           </view>
           <view class="talk-item-desc">
-            <text class="talk-item-desc-txt">{{item.desc}}</text>
+            <text class="talk-item-desc-txt">{{item.discribe}}</text>
             <text class="middle-icon icon-picture"></text>
           </view>
           <view class="talk-item-bottom flex-row">

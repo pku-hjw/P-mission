@@ -173,6 +173,7 @@ public class WxAuthController {
         data.put("avatar", user.getAvatar());
         data.put("gender", user.getGender());
         data.put("mobile", user.getMobile());
+        data.put("id", user.getId());
 
         return ResponseUtil.ok(data);
     }
