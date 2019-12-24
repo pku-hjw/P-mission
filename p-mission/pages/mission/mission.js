@@ -34,11 +34,11 @@ Page({
     wx.request({
       url: api.GetAllMission,
       method: 'GET',
-      data: {
-        'start': _that.data.start,
-        'limit': _that.data.limit,
-        'uid': app.globalData.userInfo.userId
-      },
+      // data: {
+      //   'start': _that.data.start,
+      //   'limit': _that.data.limit,
+      //   'uid': app.globalData.userInfo.userId
+      // },
       success: function (res) {
         /* res */
         console.log(JSON.stringify(res.data));
