@@ -3,7 +3,7 @@ package com.pkuhjw.pkukaola.domain;
 public class Mission {
     private int missionid;
     private String missionname="";
-    private String discrible="";
+    private String discribe="";
     private String missionclass="";
     private int publisherid;
     private String publisher="";
@@ -19,7 +19,7 @@ public class Mission {
         return "Mission{" +
                 "missionid=" + missionid +
                 ", missionname='" + missionname + '\'' +
-                ", discrible='" + discrible + '\'' +
+                ", discribe='" + discribe + '\'' +
                 ", missionclass='" + missionclass + '\'' +
                 ", publisherid=" + publisherid +
                 ", publisher='" + publisher + '\'' +
@@ -31,10 +31,10 @@ public class Mission {
                 '}';
     }
 
-    public Mission(int missionid, String missionname, String discrible, String missionclass, int publisherid, String publisher, float price, String image_list, String publisher_location) {
+    public Mission(int missionid, String missionname, String discribe, String missionclass, int publisherid, String publisher, float price, String image_list, String publisher_location) {
         this.missionid = missionid;
         this.missionname = missionname;
-        this.discrible = discrible;
+        this.discribe = discribe;
         this.missionclass = missionclass;
         this.publisherid = publisherid;
         this.publisher = publisher;
@@ -113,11 +113,11 @@ public class Mission {
     }
 
     public String getDiscrible() {
-        return discrible;
+        return discribe;
     }
 
-    public void setDiscrible(String discrible) {
-        this.discrible = discrible;
+    public void setDiscrible(String discribe) {
+        this.discribe = discribe;
     }
 
     public String getMissionclass() {

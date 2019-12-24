@@ -75,7 +75,7 @@ Page({
     })
     console.log(this.data.missionid)
     wx.request({
-      url: 'http://localhost:8080/comment/getcomment',
+      url: api.CommentGet,
       method: 'post',
       data: {
         missionid: this.data.missionid
@@ -112,7 +112,7 @@ Page({
     console.log(_that.data.discribe)
     console.log(_that.data.title)
     wx.request({
-      url: 'http://localhost:8080/comment/addComment',
+      url: api.CommentPost,
       method: 'POST',
       header: {
         "Content-Type": "application/x-www-form-urlencoded"

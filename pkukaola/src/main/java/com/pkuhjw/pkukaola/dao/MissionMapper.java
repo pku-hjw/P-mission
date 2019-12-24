@@ -21,8 +21,9 @@ public interface MissionMapper {
     public Mission getMission(@Param("id") int missionid);
 
     /* 查找某个mission的评论 */
-    @Select("SELECT * FROM pkukaola_COMMENT WHERE MISSIONID=#{id}")
+    @Select("SELECT * FROM pkukaola_comment WHERE MISSIONID=#{id}")
     public List<Comment> getMissionComment(@Param("id") int missionid);
+
 
     @Insert("INSERT INTO pkukaola_mission VALUES (#{missionid}, #{missionname}, #{discrible},#{missionclass}, #{publisherid}, #{publisher},#{lookcount}, #{commentcount}, #{price}, #{image_list}, #{publisher_location});")
     public void addMission(Mission mission);
