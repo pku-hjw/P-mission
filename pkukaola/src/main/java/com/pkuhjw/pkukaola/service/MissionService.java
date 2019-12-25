@@ -15,7 +15,7 @@ public class MissionService {
     private int tempmissionid=0;
     private int tempcommentid=0;
     private int tempGoodsid=0;
-    int test = 70;
+    int test = 80;
 
     @Autowired
     private MissionMapper missionMapper;
@@ -38,7 +38,7 @@ public class MissionService {
                              String image_list,
                              String publisher_location
     ){
-        tempmissionid=test;
+        tempmissionid=(int)System.currentTimeMillis();
         tempmissionid++;
         try{
             System.out.println(tempmissionid);
@@ -53,7 +53,7 @@ public class MissionService {
     }
     public String addComment(int missionid,int userid,String content
     ){
-        tempcommentid=test;
+        tempcommentid=(int)System.currentTimeMillis();
         tempcommentid++;
         System.out.println(tempcommentid);
         Comment comment = new Comment(tempcommentid,content,missionid,userid);
@@ -63,7 +63,7 @@ public class MissionService {
         return "添加成功";
     }
     public String addGoods(String address,float price,String title,String desc,int category_id,int publish_user_id ){
-        tempGoodsid=test;
+        tempGoodsid=(int)System.currentTimeMillis();
         tempGoodsid++;
         System.out.println(tempGoodsid);
         Goods good  = new Goods(tempGoodsid,address,price,title,desc,category_id,publish_user_id);

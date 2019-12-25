@@ -1,7 +1,7 @@
 // 以下是业务服务器API地址
 // 本机开发时使用
 
-//var WxApiRoot = 'http://localhost:8081/wx/';
+// var WxApiRoot = 'http://localhost:8081/wx/';
 // var WxApiRoot = 'http://localhost:8080';
 // 局域网测试使用
 var WxApiRoot = 'http://182.254.200.15:8081/wx/';
