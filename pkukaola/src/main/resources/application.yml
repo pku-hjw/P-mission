@@ -28,24 +28,9 @@ spring:
       filters:  stat,wall
 
 pkukaola:
-  # 开发者应该设置成自己的wx相关信息
+  # 自己的wx相关信息
   wx:
     app-id: wx040de6ae2c7df9ad
     app-secret: 5fd86bdafaedb0abe6e805b690d024da
 
-  # 对象存储配置
-  storage:
-    # 当前工作的对象存储模式
-    active: local
-    # 本地对象存储配置信息
-    local:
-      storagePath: storage
-      # 这个地方应该是wx模块的WxStorageController的fetch方法对应的地址
-      address: http://localhost:8080/wx/storage/fetch/
-    tencent:
-      secretId: AKIDOccMr856uoU1Tsa2MQL5aqseBUWRrb5i
-      secretKey: XqtgEhIdrupTs4ygaWlkUUXv3w3FiwuD
-      region: ap-shanghai
-
-      bucketName: vytech-1300096589
 

@@ -1,17 +1,8 @@
-// goLogin() {
-//   wx.navigateTo({
-//     url: "/pages/auth/login/login"
-//   });
-// },
-// hasLogin: false,
-
 const qiniuUploader = require("../../utils/qiniuUploader");
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
 var user = require('../../utils/user.js');
 
-// const qiniuUploader = require("../../utils/qiniuUploader");
-//index.js
 
 // 初始化七牛相关参数
 function initQiniu() {
@@ -34,7 +25,7 @@ Page({
     // hasLogin: true,
     switchstatus: 0,
     imageList: [],
-    categories: ["衣服", "鞋子", "书本", "电器", "其他"],
+    categories: ["图书", "电子", "其他"],
     mission_categories: ["着急要", "慢慢收"],
     cIndex: 0,
     mission_index: 0,

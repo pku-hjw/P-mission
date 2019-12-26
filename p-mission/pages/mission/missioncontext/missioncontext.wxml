@@ -1,7 +1,6 @@
-<!--pages/social/topic/topic.wxml-->
+
 <import src="../../../template/listcomment"/>
 <view class="container">
-<button bindtap="test">test</button>
   <view class="top">
     <view class="content">
       <view class="title">

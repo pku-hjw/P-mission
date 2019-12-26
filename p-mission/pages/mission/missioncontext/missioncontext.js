@@ -18,14 +18,7 @@ Page({
       lookCount: null,
       commentCount: null,
     },
-    // missionname:'今天是个好日子',
     imageList: [
-      {
-        src: "http://nanxuan.qiniuts.com/UI-design-1.jpeg"
-      },
-      {
-        src: "http://nanxuan.qiniuts.com/UI-design-1.jpeg"
-      }
     ],
   },
   test: function () {

@@ -1,7 +1,6 @@
 <import src="../../template/loading" />
 
 <view class="container">
-  <!-- <template is="loading" /> -->
   <view class="no-login" wx:if="{{!hasLogin}}">
     <view class="c">
       <!-- <image src='../../../../../static/images/icon_mission.png' /> -->

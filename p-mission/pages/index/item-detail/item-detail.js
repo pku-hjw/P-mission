@@ -261,17 +261,6 @@ Page({
       }
     })
   },
-  // contactSeller: function(e) {
-  //   var app = getApp();
-  //   if (! this.data.sellerPhone) {
-  //     wx.showToast({
-  //       title: '对方未留下联系方式',
-  //     })
-  //   }
-  //   // wx.makePhoneCall({
-  //   //   phoneNumber: app.globalData.userInfo.telephone,
-  //   // })
-  // },
   contactSeller: function (e) {
     if (!this.data.sellerPhone) {
       wx.showToast({
@@ -319,17 +308,10 @@ Page({
           sellerPhone: data.user_vo.telephone,
           publishDesc: data.publish_date + " 发布于 " + data.publish_address,
           price: data.price,
-          // oldPrice:Math.round(data.price*(Math.random()+1))*100/100,
-          oldPrice:data.price*(0.2333+1).toFixed(2),
-          // freight: data.freight,
+          oldPrice: data.price*(Math.random()+1).toFixed(2),
           describe: data.title + ", " + data.describe,
-          // isDonation: data.is_donation,
           lookCount: data.look_count,
           commentCount: data.comment_count,
-          // likeCount: data.like_count,
-          // favoriteCount: data.favorite_count,
-          // likeId: data.likeId,
-          // favoriteId: data.favoriteId,
           imagelist: _photo,
         })
         console.log(res);

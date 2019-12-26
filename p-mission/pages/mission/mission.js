@@ -34,11 +34,6 @@ Page({
     wx.request({
       url: api.GetAllMission,
       method: 'GET',
-      // data: {
-      //   'start': _that.data.start,
-      //   'limit': _that.data.limit,
-      //   'uid': app.globalData.userInfo.userId
-      // },
       success: function (res) {
         /* res */
         console.log(JSON.stringify(res.data));
@@ -58,13 +53,11 @@ Page({
             lookCount: _data[i].lookCount,
             commentCount: _data[i].commentcount
           })
-          // console.log(JSON.stringify(res));
         }
         _that.setData({
           missiondata: _missiondata
         })
         console.log("读取成功")
-        // console.log(this._missiondata)
       }
     })
   },
